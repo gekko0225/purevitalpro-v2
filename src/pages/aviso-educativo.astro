@@ -1,0 +1,291 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Aviso educativo y de salud"
+  description="Alcance y limitaciones de los contenidos educativos publicados por Pure Vital Pro."
+>
+  <main>
+    <header class="page-header">
+      <div class="container page-header__content">
+        <p class="eyebrow">Información importante</p>
+
+        <h1>Aviso educativo y de salud</h1>
+
+        <p>
+          Este documento explica el alcance de los contenidos publicados
+          en Pure Vital Pro y las situaciones en las que debes buscar
+          orientación profesional.
+        </p>
+      </div>
+    </header>
+
+    <article class="legal-content">
+      <div class="content-container">
+        <section>
+          <h2>Finalidad del sitio</h2>
+
+          <p>
+            Pure Vital Pro publica contenidos informativos y educativos
+            sobre fuerza, movimiento, movilidad, actividad física,
+            descanso, nutrición general y hábitos de bienestar,
+            principalmente para personas mayores de 40 años.
+          </p>
+
+          <p>
+            La información tiene como propósito facilitar la comprensión
+            de estos temas y ayudar a los lectores a formular mejores
+            preguntas y tomar decisiones generales más conscientes.
+          </p>
+        </section>
+
+        <section>
+          <h2>No sustituye atención profesional</h2>
+
+          <p>
+            Los contenidos de este sitio no constituyen diagnóstico,
+            consulta médica, tratamiento, prescripción, rehabilitación
+            ni recomendación profesional individualizada.
+          </p>
+
+          <p>
+            La información publicada no sustituye la valoración de un
+            médico, nutricionista, fisioterapeuta, psicólogo,
+            profesional del ejercicio u otro profesional competente que
+            conozca tus antecedentes y circunstancias particulares.
+          </p>
+        </section>
+
+        <section>
+          <h2>No utilizamos los artículos para diagnosticar</h2>
+
+          <p>
+            No debes utilizar un artículo, correo electrónico,
+            infografía, guía o publicación de Pure Vital Pro para
+            diagnosticar una condición, interpretar síntomas o decidir
+            por tu cuenta si debes iniciar, modificar o suspender un
+            tratamiento.
+          </p>
+        </section>
+
+        <section>
+          <h2>Resultados individuales</h2>
+
+          <p>
+            La respuesta al ejercicio, la alimentación, el descanso y
+            los cambios de hábitos puede variar entre personas.
+          </p>
+
+          <p>
+            La publicación de beneficios potenciales o resultados
+            observados en investigaciones no garantiza que una persona
+            concreta obtenga esos mismos resultados.
+          </p>
+        </section>
+
+        <section>
+          <h2>Actividad física y seguridad</h2>
+
+          <p>
+            Las recomendaciones generales deben adaptarse a la capacidad,
+            experiencia y estado de salud de cada persona.
+          </p>
+
+          <p>
+            Busca orientación profesional antes de iniciar o modificar
+            una actividad si tienes una condición diagnosticada, una
+            lesión reciente, limitaciones de movilidad, problemas de
+            equilibrio, consumes medicamentos que puedan afectar el
+            ejercicio o tienes dudas sobre qué esfuerzos son apropiados.
+          </p>
+
+          <p>
+            Detén la actividad y solicita atención si aparece dolor en
+            el pecho, desmayo, dificultad respiratoria inusual, debilidad
+            repentina, dolor intenso u otro síntoma preocupante.
+          </p>
+        </section>
+
+        <section>
+          <h2>Nutrición y suplementos</h2>
+
+          <p>
+            Los contenidos sobre alimentación describen principios
+            generales y no sustituyen un plan nutricional individual.
+          </p>
+
+          <p>
+            No debes iniciar suplementos únicamente por haber leído un
+            artículo. Los suplementos pueden tener contraindicaciones,
+            interacciones con medicamentos o efectos diferentes según la
+            situación personal.
+          </p>
+        </section>
+
+        <section>
+          <h2>Fuentes y actualizaciones</h2>
+
+          <p>
+            Procuramos fundamentar las afirmaciones principales en
+            fuentes identificables y confiables. Sin embargo, la
+            investigación científica evoluciona y un contenido puede
+            necesitar actualización.
+          </p>
+
+          <p>
+            La ausencia de una actualización inmediata no convierte el
+            contenido en una recomendación permanente o aplicable a
+            todas las personas.
+          </p>
+        </section>
+
+        <section>
+          <h2>Enlaces externos</h2>
+
+          <p>
+            Los artículos pueden incluir enlaces a investigaciones,
+            organizaciones y recursos externos. Estos enlaces se
+            proporcionan como referencia.
+          </p>
+
+          <p>
+            Pure Vital Pro no controla permanentemente el contenido, la
+            disponibilidad ni las políticas de esos sitios.
+          </p>
+        </section>
+
+        <section>
+          <h2>Uso responsable de la información</h2>
+
+          <p>
+            Al utilizar este sitio aceptas que la información debe
+            interpretarse como educación general y que eres responsable
+            de buscar orientación individual cuando tu situación lo
+            requiera.
+          </p>
+        </section>
+
+        <aside class="important-notice">
+          <h2>Ante una urgencia</h2>
+
+          <p>
+            Si consideras que estás ante una emergencia o un problema
+            de salud urgente, no esperes una respuesta de Pure Vital Pro
+            ni utilices este sitio como medio de atención. Comunícate
+            con los servicios de emergencia o acude a un centro
+            asistencial.
+          </p>
+        </aside>
+
+        <p class="last-update">
+          Última actualización: 30 de julio de 2026.
+        </p>
+      </div>
+    </article>
+  </main>
+</BaseLayout>
+
+<style>
+  .container {
+    width: min(100% - 2rem, 72rem);
+    margin-inline: auto;
+  }
+
+  .content-container {
+    width: min(100% - 2rem, 46rem);
+    margin-inline: auto;
+  }
+
+  .page-header {
+    padding-block: clamp(4.5rem, 10vw, 7rem);
+    background: var(--color-sand);
+  }
+
+  .page-header__content {
+    max-width: 50rem;
+  }
+
+  .eyebrow {
+    margin: 0 0 0.8rem;
+    color: var(--color-clay);
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .page-header h1 {
+    max-width: 14ch;
+    margin: 0;
+    color: var(--color-ink);
+    font-size: clamp(2.5rem, 7vw, 4.75rem);
+    line-height: 1;
+    text-wrap: balance;
+  }
+
+  .page-header p:last-child {
+    max-width: 42rem;
+    margin: 1.5rem 0 0;
+    color: color-mix(
+      in srgb,
+      var(--color-ink) 78%,
+      transparent
+    );
+    font-size: clamp(1.05rem, 2vw, 1.2rem);
+    line-height: 1.75;
+  }
+
+  .legal-content {
+    padding-block: clamp(4rem, 8vw, 7rem);
+    background: var(--color-ivory);
+  }
+
+  .legal-content section + section {
+    margin-top: 3.5rem;
+  }
+
+  .legal-content h2 {
+    margin: 0 0 1rem;
+    color: var(--color-ink);
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    line-height: 1.25;
+  }
+
+  .legal-content p {
+    color: color-mix(
+      in srgb,
+      var(--color-ink) 82%,
+      transparent
+    );
+    font-size: 1.02rem;
+    line-height: 1.8;
+  }
+
+  .important-notice {
+    margin-top: 4rem;
+    padding: clamp(1.5rem, 5vw, 2.5rem);
+    background: var(--color-ink);
+    border-radius: 1.25rem;
+  }
+
+  .important-notice h2 {
+    color: var(--color-ivory);
+  }
+
+  .important-notice p {
+    margin-bottom: 0;
+    color: color-mix(
+      in srgb,
+      var(--color-ivory) 82%,
+      transparent
+    );
+  }
+
+  .last-update {
+    margin-top: 2.5rem;
+    color: var(--color-forest) !important;
+    font-size: 0.85rem !important;
+    font-weight: 700;
+  }
+</style>

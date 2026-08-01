@@ -1,0 +1,565 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import FeaturedArticles from "../components/FeaturedArticles.astro";
+
+const articles = [
+  {
+    category: "Fuerza",
+    readingTime: "6 min",
+    title:
+      "¿Es demasiado tarde para empezar a entrenar fuerza después de los 40?",
+    description:
+      "Qué puedes esperar realmente cuando decides comenzar, incluso si llevas años sin entrenar.",
+    href:
+      "/articulos/empezar-fuerza-despues-40",
+    accent: "green"
+  },
+  {
+    category: "Movimiento",
+    readingTime: "5 min",
+    title:
+      "Cómo volver a moverte después de años de sedentarismo",
+    description:
+      "Una forma realista de reducir barreras y recuperar gradualmente la constancia.",
+    href:
+      "/articulos/volver-moverte-sedentarismo",
+    accent: "blue"
+  },
+  {
+    category: "Equipamiento",
+    readingTime: "7 min",
+    title:
+      "Peso corporal, bandas o mancuernas: cómo empezar",
+    description:
+      "Las diferencias prácticas para elegir una opción sin complicarte.",
+    href:
+      "/articulos/peso-corporal-bandas-mancuernas",
+    accent: "clay"
+  }
+];
+
+const principles = [
+  "Información basada en evidencia",
+  "Aplicaciones para la vida real",
+  "Sin promesas extremas"
+];
+---
+
+<BaseLayout
+  title="Pure Vital Pro"
+  description="Ideas basadas en evidencia para conservar fuerza, movimiento y vitalidad después de los 40."
+  image="/images/home/hero-vital-40.webp"
+>
+  <section class="hero">
+    <img
+      class="hero__image"
+      src="/images/home/hero-vital-40.webp"
+      alt="Hombre y mujer mayores de 40 años caminando en un parque"
+      width="1600"
+      height="900"
+      fetchpriority="high"
+    />
+
+        <div class="hero__overlay"></div>
+
+    <div class="container hero__content">
+      <div class="hero__copy">
+        <p class="eyebrow">
+          Fuerza y vitalidad después de los 40
+        </p>
+
+                        <h1>
+          Más fuerza.
+          <br />
+          Más movimiento.
+          <br />
+          Más vida.
+        </h1>
+
+        <p class="hero__description">
+          Ideas claras y basadas en evidencia para
+          mantenerte activo, fuerte y autónomo durante
+          las próximas décadas.
+        </p>
+
+        <div class="hero__actions">
+          <a
+            class="button"
+            href="/empieza-aqui"
+          >
+            Empieza aquí
+          </a>
+
+          <a
+            class="text-link hero__secondary"
+            href="/articulos"
+          >
+            Explorar artículos
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <FeaturedArticles />
+
+  <section
+    class="principles"
+    aria-label="Principios editoriales"
+  >
+    <div class="container principles__list">
+      {
+        principles.map((principle) => (
+          <p>
+            <span aria-hidden="true">✓</span>
+            {principle}
+          </p>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="articles section">
+    <div class="container">
+      <div class="articles__heading">
+        <div>
+          <p class="articles__eyebrow">
+            Lecturas recomendadas
+          </p>
+
+          <h2 class="section-title">
+            Para empezar a moverte mejor
+          </h2>
+        </div>
+
+        <a
+          class="text-link articles__all"
+          href="/articulos"
+        >
+          Ver todos
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      <div class="articles__grid">
+        {
+          articles.map((article, index) => (
+            <article
+              class:list={[
+                "article-card",
+                `article-card--${article.accent}`,
+                {
+                  "article-card--featured": index === 0
+                }
+              ]}
+            >
+              <div class="article-card__meta">
+                <span>{article.category}</span>
+                <span aria-hidden="true">•</span>
+                <span>{article.readingTime}</span>
+              </div>
+
+              <h3>
+                <a href={article.href}>
+                  {article.title}
+                </a>
+              </h3>
+
+              <p>{article.description}</p>
+
+              <a
+                class="article-card__link"
+                href={article.href}
+                aria-label={`Leer: ${article.title}`}
+              >
+                Leer artículo
+                <span aria-hidden="true">→</span>
+              </a>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="lead-magnet">
+    <div class="container lead-magnet__inner">
+      <div>
+        <p class="lead-magnet__eyebrow">
+          Recurso gratuito
+        </p>
+
+        <h2>
+          Descarga La Vía Negativa 40+
+        </h2>
+
+        <p>
+          Una infografía práctica para identificar y
+          quitar las barreras que están frenando tu
+          movimiento.
+        </p>
+      </div>
+
+      <a
+        class="button lead-magnet__button"
+        href="/empieza-aqui"
+      >
+        Quiero la infografía
+      </a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Hero */
+
+  .hero {
+    position: relative;
+    min-height: 39rem;
+    overflow: hidden;
+    background: var(--color-ink);
+  }
+
+  .hero__image,
+  .hero__overlay {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .hero__image {
+    object-fit: cover;
+    object-position: 65% center;
+  }
+
+  .hero__overlay {
+    background:
+      linear-gradient(
+        90deg,
+        rgb(23 36 51 / 100%) 0%,
+        rgb(23 36 51 / 98%) 34%,
+        rgb(23 36 51 / 80%) 55%,
+        rgb(23 36 51 / 18%) 88%
+      );
+  }
+
+  .hero__content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    min-height: 39rem;
+    align-items: center;
+    padding-block: var(--space-16);
+  }
+
+  .hero__copy {
+    width: min(100%, 42rem);
+    color: var(--color-ivory);
+  }
+
+  .hero h1 {
+    margin-top: var(--space-6);
+    font-size: clamp(3.25rem, 7vw, 5rem);
+    letter-spacing: -0.045em;
+  }
+
+  .hero__description {
+    max-width: 35rem;
+    margin-top: var(--space-6);
+    color: #e2e7e5;
+    font-size: clamp(
+      var(--text-base),
+      2vw,
+      var(--text-xl)
+    );
+    line-height: 1.6;
+  }
+
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-6);
+    margin-top: var(--space-8);
+  }
+
+  .hero__secondary {
+    color: var(--color-ivory);
+  }
+
+  .hero__secondary:hover {
+    color: var(--color-mustard);
+  }
+
+  /* Principios */
+
+  .principles {
+    background: #e8dfcf;
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
+  .principles__list {
+    display: grid;
+    gap: var(--space-3);
+    padding-block: var(--space-5);
+  }
+
+  .principles p {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-bold);
+  }
+
+  .principles span {
+    color: var(--color-forest);
+    font-size: var(--text-lg);
+  }
+
+  /* Artículos */
+
+  .articles {
+    background: var(--color-paper);
+  }
+
+  .articles__heading {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+    margin-bottom: var(--space-8);
+  }
+
+  .articles__eyebrow,
+  .lead-magnet__eyebrow {
+    margin-bottom: var(--space-3);
+    color: var(--color-forest);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-extrabold);
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+  }
+
+  .articles__all {
+    width: fit-content;
+    color: var(--color-forest-dark);
+  }
+
+  .articles__grid {
+    display: grid;
+    gap: var(--space-5);
+  }
+
+  .article-card {
+    position: relative;
+    display: flex;
+    min-height: 20rem;
+    flex-direction: column;
+    padding: var(--space-6);
+    overflow: hidden;
+    border-radius: var(--radius-md);
+    background: var(--color-ivory);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .article-card::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 0.3rem;
+    background: var(--card-accent);
+    content: "";
+  }
+
+  .article-card--green {
+    --card-accent: var(--color-forest);
+    background: #e9eee7;
+  }
+
+  .article-card--blue {
+    --card-accent: var(--color-sky);
+  }
+
+  .article-card--clay {
+    --card-accent: var(--color-clay);
+  }
+
+  .article-card__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    color: var(--color-forest);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-extrabold);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .article-card h3 {
+    margin-top: var(--space-5);
+    font-size: clamp(
+      var(--text-2xl),
+      3vw,
+      var(--text-3xl)
+    );
+  }
+
+  .article-card h3 a {
+    text-decoration: none;
+  }
+
+  .article-card h3 a::after {
+    position: absolute;
+    inset: 0;
+    content: "";
+  }
+
+  .article-card h3 a:hover {
+    color: var(--color-forest-dark);
+  }
+
+  .article-card p {
+    margin-top: var(--space-4);
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+  }
+
+  .article-card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    width: fit-content;
+    margin-top: auto;
+    padding-top: var(--space-6);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-extrabold);
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  /* Lead magnet */
+
+  .lead-magnet {
+    padding: 0 var(--page-padding) var(--space-8);
+    background: var(--color-paper);
+  }
+
+  .lead-magnet__inner {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+    padding: var(--space-8);
+    border-radius: var(--radius-lg);
+    background: var(--color-forest);
+    color: var(--color-white);
+  }
+
+  .lead-magnet__eyebrow {
+    color: var(--color-mustard);
+  }
+
+  .lead-magnet h2 {
+    font-size: clamp(
+      var(--text-3xl),
+      5vw,
+      var(--text-4xl)
+    );
+  }
+
+  .lead-magnet p:not(.lead-magnet__eyebrow) {
+    max-width: 44rem;
+    margin-top: var(--space-3);
+    color: #e7eee8;
+  }
+
+  .lead-magnet__button {
+    flex: 0 0 auto;
+  }
+
+  /* Responsive */
+
+  @media (min-width: 40rem) {
+    .principles__list {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .principles p {
+      justify-content: center;
+      text-align: center;
+    }
+  }
+
+  @media (min-width: 48rem) {
+    .articles__heading {
+      flex-direction: row;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+
+    .articles__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .article-card--featured {
+      grid-column: 1 / -1;
+    }
+
+    .lead-magnet__inner {
+      padding: var(--space-10);
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .articles__grid {
+      grid-template-columns: 1.35fr 1fr 1fr;
+    }
+
+    .article-card--featured {
+      grid-column: auto;
+    }
+
+    .lead-magnet__inner {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  @media (max-width: 40rem) {
+    .hero {
+      min-height: 42rem;
+    }
+
+    .hero__content {
+      min-height: 42rem;
+      align-items: flex-end;
+    }
+
+    .hero__image {
+      object-position: 66% center;
+    }
+
+    .hero__overlay {
+      background:
+        linear-gradient(
+          0deg,
+          rgb(23 36 51 / 100%) 0%,
+          rgb(23 36 51 / 92%) 52%,
+          rgb(23 36 51 / 28%) 100%
+        );
+    }
+
+    .hero__actions {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+
+    .hero__actions .button {
+      width: 100%;
+    }
+  }
+</style>

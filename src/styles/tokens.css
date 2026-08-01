@@ -1,0 +1,93 @@
+:root {
+  /* Colores principales */
+  --color-ink: #172433;
+  --color-forest: #527a5a;
+  --color-forest-dark: #34533e;
+  --color-clay: #c86f52;
+  --color-clay-dark: #a85138;
+  --color-mustard: #d3a62c;
+  --color-sky: #8aafc2;
+
+  /* Fondos */
+  --color-sand: #f3eee3;
+  --color-ivory: #f9f6ef;
+  --color-paper: #fffdf8;
+  --color-white: #ffffff;
+
+  /* Texto y bordes */
+  --color-text: var(--color-ink);
+  --color-text-muted: #55645f;
+  --color-text-light: #dce3e0;
+  --color-border: rgb(23 36 51 / 14%);
+  --color-border-light: rgb(23 36 51 / 9%);
+
+  /* Tipografías */
+  --font-display: "Source Serif 4", Georgia, serif;
+  --font-body: "Inter", system-ui, sans-serif;
+
+  /* Tamaños tipográficos */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 2rem;
+  --text-4xl: 2.75rem;
+  --text-5xl: 3.75rem;
+  --text-6xl: 4.5rem;
+
+  /* Pesos */
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+  --weight-extrabold: 800;
+
+  /* Espaciado */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+
+  /* Contenedores */
+  --page-width: 80rem;
+  --content-width: 46rem;
+  --narrow-width: 38rem;
+  --page-padding: 1rem;
+
+  /* Bordes redondeados */
+  --radius-sm: 0.7rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.5rem;
+  --radius-xl: 2rem;
+  --radius-pill: 999px;
+
+  /* Sombras */
+  --shadow-sm: 0 0.35rem 1rem rgb(23 36 51 / 6%);
+  --shadow-md: 0 1rem 3rem rgb(23 36 51 / 9%);
+  --shadow-lg: 0 1.5rem 4rem rgb(23 36 51 / 13%);
+
+  /* Transiciones */
+  --transition-fast: 160ms ease;
+  --transition-base: 240ms ease;
+
+  /* Capas */
+  --z-header: 20;
+  --z-menu: 30;
+  --z-modal: 50;
+}
+
+@media (min-width: 48rem) {
+  :root {
+    --page-padding: 2rem;
+  }
+}

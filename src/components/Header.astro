@@ -1,0 +1,266 @@
+---
+import Brand from "./Brand.astro";
+
+const navigation = [
+  {
+    href: "/",
+    label: "Inicio"
+  },
+  {
+    href: "/articulos",
+    label: "Artículos"
+  },
+  {
+    href: "/empieza-aqui",
+    label: "Empieza aqui"
+  },
+  
+];
+
+const currentPath = Astro.url.pathname;
+
+function isActive(href: string) {
+  if (href === "/") {
+    return currentPath === "/";
+  }
+
+  return currentPath === href || currentPath.startsWith(`${href}/`);
+}
+---
+
+<header class="site-header">
+  <div class="site-header__accent"></div>
+
+  <div class="container site-header__inner">
+    <Brand />
+
+    <nav
+      class="desktop-nav"
+      aria-label="Navegación principal"
+    >
+      {
+        navigation.map((item) => (
+          <a
+            class:list={[
+              "desktop-nav__link",
+              {
+                "desktop-nav__link--active": isActive(item.href)
+              }
+            ]}
+            href={item.href}
+            aria-current={isActive(item.href) ? "page" : undefined}
+          >
+            {item.label}
+          </a>
+        ))
+      }
+
+      <a
+        class:list={[
+          "desktop-nav__cta",
+          {
+            "desktop-nav__cta--active": isActive("/newsletter")
+          }
+        ]}
+        href="/empieza-aqui"
+        aria-current={isActive("/newsletter") ? "page" : undefined}
+      >
+        Infografía gratis
+      </a>
+    </nav>
+
+    <details class="mobile-nav">
+      <summary aria-label="Abrir menú de navegación">
+        <span></span>
+        <span></span>
+        <span></span>
+      </summary>
+
+      <nav aria-label="Navegación móvil">
+        {
+          navigation.map((item) => (
+            <a
+              class:list={{
+                "mobile-nav__active": isActive(item.href)
+              }}
+              href={item.href}
+              aria-current={isActive(item.href) ? "page" : undefined}
+            >
+              {item.label}
+            </a>
+          ))
+        }
+
+        <a
+          class:list={{
+            "mobile-nav__active": isActive("/empieza-aqui")
+          }}
+          href="/empieza-aqui"
+          aria-current={isActive("/newsletter") ? "page" : undefined}
+        >
+          Infografía gratis
+        </a>
+      </nav>
+    </details>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    z-index: var(--z-header);
+    top: 0;
+    background: rgb(249 246 239 / 96%);
+    border-bottom: 1px solid var(--color-border-light);
+    backdrop-filter: blur(12px);
+  }
+
+  .site-header__accent {
+    height: 0.35rem;
+    background: var(--color-clay);
+  }
+
+  .site-header__inner {
+    display: flex;
+    min-height: 5.5rem;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+  }
+
+  /* Navegación de escritorio */
+
+  .desktop-nav {
+    display: none;
+    align-items: center;
+    gap: clamp(1rem, 2vw, 2rem);
+  }
+
+  .desktop-nav__link {
+    position: relative;
+    padding-block: var(--space-2);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-bold);
+    text-decoration: none;
+  }
+
+  .desktop-nav__link::after {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    background: var(--color-clay);
+    content: "";
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform var(--transition-fast);
+  }
+
+  .desktop-nav__link:hover::after,
+  .desktop-nav__link--active::after {
+    transform: scaleX(1);
+  }
+
+  .desktop-nav__cta {
+    padding: 0.75rem 1.1rem;
+    border-radius: var(--radius-sm);
+    background: var(--color-ink);
+    color: var(--color-white);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-bold);
+    text-decoration: none;
+    transition:
+      background-color var(--transition-fast),
+      transform var(--transition-fast);
+  }
+
+  .desktop-nav__cta:hover,
+  .desktop-nav__cta--active {
+    background: var(--color-forest-dark);
+    transform: translateY(-1px);
+  }
+
+  /* Navegación móvil */
+
+  .mobile-nav {
+    position: relative;
+  }
+
+  .mobile-nav summary {
+    display: grid;
+    width: 2.85rem;
+    height: 2.85rem;
+    cursor: pointer;
+    list-style: none;
+    place-content: center;
+    gap: 0.28rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    background: transparent;
+  }
+
+  .mobile-nav summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .mobile-nav summary span {
+    width: 1.25rem;
+    height: 2px;
+    border-radius: var(--radius-pill);
+    background: var(--color-ink);
+    transition:
+      transform var(--transition-fast),
+      opacity var(--transition-fast);
+  }
+
+  .mobile-nav[open] summary span:nth-child(1) {
+    transform: translateY(0.37rem) rotate(45deg);
+  }
+
+  .mobile-nav[open] summary span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .mobile-nav[open] summary span:nth-child(3) {
+    transform: translateY(-0.37rem) rotate(-45deg);
+  }
+
+  .mobile-nav nav {
+    position: absolute;
+    top: calc(100% + var(--space-3));
+    right: 0;
+    display: grid;
+    width: min(19rem, calc(100vw - 2rem));
+    padding: var(--space-3);
+    border: 1px solid var(--color-border-light);
+    border-radius: var(--radius-md);
+    background: var(--color-ivory);
+    box-shadow: var(--shadow-md);
+  }
+
+  .mobile-nav nav a {
+    padding: 0.85rem;
+    border-radius: 0.55rem;
+    font-size: var(--text-sm);
+    font-weight: var(--weight-bold);
+    text-decoration: none;
+  }
+
+  .mobile-nav nav a:hover,
+  .mobile-nav nav a:focus-visible,
+  .mobile-nav__active {
+    background: var(--color-sand);
+    color: var(--color-forest-dark);
+  }
+
+  @media (min-width: 58rem) {
+    .desktop-nav {
+      display: flex;
+    }
+
+    .mobile-nav {
+      display: none;
+    }
+  }
+</style>

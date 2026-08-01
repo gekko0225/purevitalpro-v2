@@ -1,0 +1,170 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  article: CollectionEntry<"articles">;
+}
+
+const { article } = Astro.props;
+
+const formattedDate = article.data.publishedAt.toLocaleDateString("es-CO", {
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+});
+
+const articleUrl = `/articulos/${article.id}`;
+---
+
+<article class="article-card">
+  <div class="article-card__metadata">
+    <span class="article-card__category">
+      {article.data.category}
+    </span>
+
+    <span aria-hidden="true">•</span>
+
+    <time datetime={article.data.publishedAt.toISOString()}>
+      {formattedDate}
+    </time>
+  </div>
+
+  <h2 class="article-card__title">
+    <a href={articleUrl}>
+      {article.data.title}
+    </a>
+  </h2>
+
+  <p class="article-card__description">
+    {article.data.description}
+  </p>
+
+  <div class="article-card__footer">
+    <span>{article.data.readingTime} min de lectura</span>
+
+    <a
+      class="article-card__link"
+      href={articleUrl}
+      aria-label={`Leer: ${article.data.title}`}
+    >
+      Leer artículo
+      <span aria-hidden="true">→</span>
+    </a>
+  </div>
+</article>
+
+<style>
+  .article-card {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    height: 100%;
+    padding: clamp(1.4rem, 3vw, 2rem);
+    background: var(--color-ivory);
+    border: 1px solid color-mix(
+      in srgb,
+      var(--color-ink) 12%,
+      transparent
+    );
+    border-radius: 1.25rem;
+    transition:
+      transform 180ms ease,
+      border-color 180ms ease,
+      box-shadow 180ms ease;
+  }
+
+  .article-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-mustard);
+    box-shadow: 0 1rem 2.5rem
+      color-mix(in srgb, var(--color-ink) 10%, transparent);
+  }
+
+  .article-card__metadata {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.45rem;
+    margin-bottom: 1rem;
+    color: var(--color-forest);
+    font-size: 0.82rem;
+    font-weight: 700;
+  }
+
+  .article-card__category {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .article-card__title {
+    margin: 0;
+    color: var(--color-ink);
+    font-size: clamp(1.35rem, 3vw, 1.75rem);
+    line-height: 1.2;
+  }
+
+  .article-card__title a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .article-card__title a::after {
+    position: absolute;
+    content: "";
+    inset: 0;
+  }
+
+  .article-card__description {
+    margin: 1rem 0 1.5rem;
+    color: color-mix(
+      in srgb,
+      var(--color-ink) 78%,
+      transparent
+    );
+    line-height: 1.7;
+  }
+
+  .article-card__footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid color-mix(
+      in srgb,
+      var(--color-ink) 10%,
+      transparent
+    );
+    color: color-mix(
+      in srgb,
+      var(--color-ink) 65%,
+      transparent
+    );
+    font-size: 0.9rem;
+  }
+
+  .article-card__link {
+    position: relative;
+    z-index: 1;
+    color: var(--color-clay);
+    font-weight: 800;
+    text-decoration: none;
+  }
+
+  .article-card__link:hover {
+    text-decoration: underline;
+    text-underline-offset: 0.25em;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .article-card {
+      transition: none;
+    }
+
+    .article-card:hover {
+      transform: none;
+    }
+  }
+</style>

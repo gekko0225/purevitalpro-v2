@@ -1,0 +1,245 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Página no encontrada"
+  description="La página que buscas no existe o cambió de dirección."
+  noindex={true}
+>
+  <main class="not-found">
+    <div class="not-found__container">
+      <div class="not-found__code" aria-hidden="true">
+        404
+      </div>
+
+      <p class="not-found__eyebrow">
+        Esta página tomó otro camino
+      </p>
+
+      <h1>No encontramos lo que estabas buscando</h1>
+
+      <p class="not-found__description">
+        Es posible que el contenido haya cambiado de dirección, que el
+        enlace esté incompleto o que la página ya no exista.
+      </p>
+
+      <div class="not-found__actions">
+        <a class="button button--primary" href="/">
+          Volver al inicio
+        </a>
+
+        <a class="button button--secondary" href="/articulos">
+          Explorar artículos
+        </a>
+      </div>
+
+      <div class="not-found__suggestions">
+        <p>También puedes empezar por aquí:</p>
+
+        <ul>
+          <li>
+            <a href="/empieza-aqui">
+              Descarga la infografía La Vía Negativa 40+
+            </a>
+          </li>
+
+          <li>
+            <a href="/criterio-editorial">
+              Conoce nuestro criterio editorial
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .not-found {
+    display: grid;
+    place-items: center;
+    min-height: 72vh;
+    padding-block: clamp(4rem, 10vw, 8rem);
+    overflow: hidden;
+    background:
+      radial-gradient(
+        circle at 80% 20%,
+        color-mix(
+          in srgb,
+          var(--color-mustard) 22%,
+          transparent
+        ),
+        transparent 30%
+      ),
+      var(--color-sand);
+  }
+
+  .not-found__container {
+    width: min(100% - 2rem, 48rem);
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .not-found__code {
+    margin-bottom: -1.5rem;
+    color: color-mix(
+      in srgb,
+      var(--color-forest) 12%,
+      transparent
+    );
+    font-size: clamp(7rem, 24vw, 14rem);
+    font-weight: 900;
+    letter-spacing: -0.08em;
+    line-height: 0.8;
+    user-select: none;
+  }
+
+  .not-found__eyebrow {
+    position: relative;
+    margin: 0 0 0.8rem;
+    color: var(--color-clay);
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .not-found h1 {
+    position: relative;
+    max-width: 15ch;
+    margin: 0 auto;
+    color: var(--color-ink);
+    font-size: clamp(2.25rem, 7vw, 4.5rem);
+    line-height: 1;
+    text-wrap: balance;
+  }
+
+  .not-found__description {
+    max-width: 39rem;
+    margin: 1.5rem auto 0;
+    color: color-mix(
+      in srgb,
+      var(--color-ink) 78%,
+      transparent
+    );
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    line-height: 1.75;
+  }
+
+  .not-found__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.8rem;
+    margin-top: 2rem;
+  }
+
+  .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 3rem;
+    padding: 0.75rem 1.25rem;
+    border: 2px solid transparent;
+    border-radius: 999px;
+    font-weight: 800;
+    text-decoration: none;
+    transition:
+      transform 180ms ease,
+      background-color 180ms ease,
+      color 180ms ease;
+  }
+
+  .button:hover {
+    transform: translateY(-2px);
+  }
+
+  .button--primary {
+    color: var(--color-ivory);
+    background: var(--color-clay);
+  }
+
+  .button--primary:hover {
+    background: var(--color-ink);
+  }
+
+  .button--secondary {
+    color: var(--color-ink);
+    background: transparent;
+    border-color: color-mix(
+      in srgb,
+      var(--color-ink) 25%,
+      transparent
+    );
+  }
+
+  .button--secondary:hover {
+    border-color: var(--color-forest);
+  }
+
+  .button:focus-visible,
+  .not-found__suggestions a:focus-visible {
+    outline: 3px solid var(--color-mustard);
+    outline-offset: 0.25rem;
+  }
+
+  .not-found__suggestions {
+    width: min(100%, 36rem);
+    margin: 3rem auto 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid color-mix(
+      in srgb,
+      var(--color-ink) 15%,
+      transparent
+    );
+  }
+
+  .not-found__suggestions p {
+    margin: 0;
+    color: var(--color-forest);
+    font-size: 0.9rem;
+    font-weight: 800;
+  }
+
+  .not-found__suggestions ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.65rem 1.25rem;
+    margin: 1rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .not-found__suggestions a {
+    color: var(--color-ink);
+    font-size: 0.9rem;
+    text-underline-offset: 0.25rem;
+  }
+
+  @media (max-width: 35rem) {
+    .not-found__actions {
+      align-items: stretch;
+      flex-direction: column;
+    }
+
+    .button {
+      width: 100%;
+    }
+
+    .not-found__suggestions ul {
+      flex-direction: column;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .button {
+      transition: none;
+    }
+
+    .button:hover {
+      transform: none;
+    }
+  }
+</style>

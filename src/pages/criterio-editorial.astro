@@ -1,0 +1,374 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Criterio editorial"
+  description="Conoce cómo Pure Vital Pro investiga, revisa y publica contenidos educativos sobre fuerza, movilidad y bienestar después de los 40."
+>
+  <main>
+    <header class="editorial-hero">
+      <div class="container editorial-hero__content">
+        <p class="eyebrow">Transparencia editorial</p>
+
+        <h1>Cómo construimos nuestros contenidos</h1>
+
+        <p class="editorial-hero__description">
+          Nuestro propósito es convertir información confiable sobre
+          fuerza, movimiento y bienestar en ideas comprensibles y
+          acciones realistas.
+        </p>
+      </div>
+    </header>
+
+    <article class="editorial-content">
+      <div class="article-container">
+        <section>
+          <h2>Nuestro propósito</h2>
+
+          <p>
+            Pure Vital Pro es un proyecto educativo dirigido principalmente
+            a personas mayores de 40 años que desean conservar fuerza,
+            movilidad y vitalidad.
+          </p>
+
+          <p>
+            Publicamos información general para facilitar la comprensión
+            de temas relacionados con actividad física, sedentarismo,
+            descanso, nutrición general y hábitos cotidianos.
+          </p>
+
+          <p>
+            No buscamos diagnosticar, prescribir tratamientos ni sustituir
+            la atención de profesionales que conozcan la situación
+            particular de cada persona.
+          </p>
+        </section>
+
+        <section>
+          <h2>Cómo seleccionamos las fuentes</h2>
+
+          <p>
+            Para sustentar las afirmaciones principales priorizamos:
+          </p>
+
+          <ul>
+            <li>Guías de organismos sanitarios oficiales.</li>
+            <li>Revisiones sistemáticas y metaanálisis.</li>
+            <li>Documentos de consenso de organizaciones científicas.</li>
+            <li>Investigaciones publicadas en revistas académicas.</li>
+          </ul>
+
+          <p>
+            Los estudios individuales pueden utilizarse para ampliar un
+            tema, pero evitamos convertir un solo resultado en una
+            recomendación general.
+          </p>
+        </section>
+
+        <section>
+          <h2>Nuestro semáforo editorial</h2>
+
+          <div class="traffic-light">
+            <div class="traffic-light__item traffic-light__item--green">
+              <p class="traffic-light__label">Contenido verde</p>
+
+              <h3>Educación general</h3>
+
+              <p>
+                Hábitos, movimiento cotidiano, fuerza, movilidad,
+                descanso y explicaciones sencillas de investigaciones
+                consolidadas.
+              </p>
+            </div>
+
+            <div class="traffic-light__item traffic-light__item--yellow">
+              <p class="traffic-light__label">Contenido amarillo</p>
+
+              <h3>Requiere mayor revisión</h3>
+
+              <p>
+                Cantidades concretas, suplementos, pérdida de peso,
+                lesiones, dolor o contenidos dirigidos a personas con
+                condiciones particulares.
+              </p>
+            </div>
+
+            <div class="traffic-light__item traffic-light__item--red">
+              <p class="traffic-light__label">Contenido rojo</p>
+
+              <h3>No se publica como consejo general</h3>
+
+              <p>
+                Diagnósticos, tratamientos individualizados, promesas de
+                curación, suspensión de medicamentos o resultados
+                garantizados.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Cómo comunicamos la evidencia</h2>
+
+          <p>
+            Procuramos diferenciar entre lo que una investigación
+            demuestra, lo que permite interpretar y aquello que todavía
+            no se conoce con suficiente certeza.
+          </p>
+
+          <p>
+            Utilizamos expresiones prudentes como “puede contribuir”,
+            “se asocia con” o “la evidencia indica” cuando el alcance de
+            los estudios no permite afirmar una relación absoluta.
+          </p>
+
+          <p>
+            Evitamos titulares alarmistas, soluciones extremas y promesas
+            rápidas. Que una práctica tenga beneficios potenciales no
+            significa que funcione igual para todas las personas.
+          </p>
+        </section>
+
+        <section>
+          <h2>Actualización de los artículos</h2>
+
+          <p>
+            Los artículos pueden actualizarse cuando aparecen nuevas
+            guías, mejores investigaciones o correcciones que cambian la
+            comprensión del tema.
+          </p>
+
+          <p>
+            Cuando la modificación sea sustancial, mostraremos una fecha
+            de actualización diferente de la fecha de publicación
+            original.
+          </p>
+        </section>
+
+        <section>
+          <h2>Experiencia personal y evidencia</h2>
+
+          <p>
+            Las experiencias personales pueden servir para ilustrar una
+            idea, pero no se presentan como prueba de que una práctica
+            producirá el mismo resultado en otras personas.
+          </p>
+
+          <p>
+            Un testimonio no reemplaza la investigación ni permite
+            establecer la seguridad de una recomendación.
+          </p>
+        </section>
+
+        <section>
+          <h2>Cuándo buscar ayuda profesional</h2>
+
+          <p>
+            Si tienes síntomas, una lesión, una condición diagnosticada,
+            consumes medicamentos o necesitas una recomendación adaptada
+            a tu situación, consulta a un profesional competente.
+          </p>
+
+          <p>
+            Nuestros contenidos proporcionan contexto para comprender
+            mejor un tema y preparar preguntas útiles, pero no sustituyen
+            una valoración individual.
+          </p>
+        </section>
+
+        <aside class="educational-notice">
+          <h2>Aviso educativo</h2>
+
+          <p>
+            El contenido de Pure Vital Pro es exclusivamente informativo
+            y educativo. No constituye diagnóstico, tratamiento,
+            prescripción médica ni recomendación profesional
+            individualizada.
+          </p>
+        </aside>
+      </div>
+    </article>
+  </main>
+</BaseLayout>
+
+<style>
+  .container {
+    width: min(100% - 2rem, 72rem);
+    margin-inline: auto;
+  }
+
+  .article-container {
+    width: min(100% - 2rem, 46rem);
+    margin-inline: auto;
+  }
+
+  .editorial-hero {
+    padding-block: clamp(4.5rem, 10vw, 8rem);
+    background:
+      radial-gradient(
+        circle at 85% 20%,
+        color-mix(in srgb, var(--color-mustard) 20%, transparent),
+        transparent 32%
+      ),
+      var(--color-sand);
+  }
+
+  .editorial-hero__content {
+    max-width: 52rem;
+  }
+
+  .eyebrow {
+    margin: 0 0 0.8rem;
+    color: var(--color-clay);
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .editorial-hero h1 {
+    max-width: 15ch;
+    margin: 0;
+    color: var(--color-ink);
+    font-size: clamp(2.5rem, 7vw, 5rem);
+    line-height: 1;
+    text-wrap: balance;
+  }
+
+  .editorial-hero__description {
+    max-width: 42rem;
+    margin: 1.5rem 0 0;
+    color: color-mix(
+      in srgb,
+      var(--color-ink) 78%,
+      transparent
+    );
+    font-size: clamp(1.05rem, 2vw, 1.25rem);
+    line-height: 1.75;
+  }
+
+  .editorial-content {
+    padding-block: clamp(4rem, 8vw, 7rem);
+    background: var(--color-ivory);
+  }
+
+  .editorial-content section + section {
+    margin-top: 4rem;
+  }
+
+  .editorial-content h2 {
+    margin: 0 0 1rem;
+    color: var(--color-ink);
+    font-size: clamp(1.6rem, 4vw, 2.25rem);
+    line-height: 1.2;
+  }
+
+  .editorial-content p,
+  .editorial-content li {
+    color: color-mix(
+      in srgb,
+      var(--color-ink) 82%,
+      transparent
+    );
+    font-size: 1.05rem;
+    line-height: 1.8;
+  }
+
+  .editorial-content ul {
+    padding-left: 1.25rem;
+  }
+
+  .editorial-content li + li {
+    margin-top: 0.6rem;
+  }
+
+  .traffic-light {
+    display: grid;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .traffic-light__item {
+    padding: 1.5rem;
+    border: 1px solid transparent;
+    border-radius: 1rem;
+  }
+
+  .traffic-light__item--green {
+    background: color-mix(
+      in srgb,
+      var(--color-forest) 10%,
+      var(--color-ivory)
+    );
+    border-color: color-mix(
+      in srgb,
+      var(--color-forest) 30%,
+      transparent
+    );
+  }
+
+  .traffic-light__item--yellow {
+    background: color-mix(
+      in srgb,
+      var(--color-mustard) 12%,
+      var(--color-ivory)
+    );
+    border-color: color-mix(
+      in srgb,
+      var(--color-mustard) 38%,
+      transparent
+    );
+  }
+
+  .traffic-light__item--red {
+    background: color-mix(
+      in srgb,
+      var(--color-clay) 9%,
+      var(--color-ivory)
+    );
+    border-color: color-mix(
+      in srgb,
+      var(--color-clay) 30%,
+      transparent
+    );
+  }
+
+  .traffic-light__label {
+    margin: 0;
+    font-size: 0.78rem !important;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .traffic-light__item h3 {
+    margin: 0.45rem 0 0.7rem;
+    color: var(--color-ink);
+    font-size: 1.3rem;
+  }
+
+  .traffic-light__item p:last-child {
+    margin-bottom: 0;
+  }
+
+  .educational-notice {
+    margin-top: 4rem;
+    padding: clamp(1.5rem, 5vw, 2.5rem);
+    background: var(--color-ink);
+    border-radius: 1.25rem;
+  }
+
+  .educational-notice h2 {
+    color: var(--color-ivory);
+  }
+
+  .educational-notice p {
+    margin-bottom: 0;
+    color: color-mix(
+      in srgb,
+      var(--color-ivory) 80%,
+      transparent
+    );
+  }
+</style>

@@ -1,0 +1,317 @@
+---
+import { getCollection } from "astro:content";
+
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ArticleCard from "../../components/ArticleCard.astro";
+
+const articles = await getCollection(
+  "articles",
+  ({ data }) => !data.draft
+);
+
+const sortedArticles = articles.sort(
+  (a, b) =>
+    b.data.publishedAt.getTime() -
+    a.data.publishedAt.getTime()
+);
+
+const categories = [
+  ...new Set(sortedArticles.map((article) => article.data.category)),
+];
+---
+
+<BaseLayout
+  title="Artículos sobre fuerza, movilidad y vitalidad después de los 40"
+  description="Información práctica y basada en evidencia para conservar fuerza, movimiento y vitalidad después de los 40."
+>
+  <main>
+    <header class="articles-hero">
+      <div class="container articles-hero__content">
+        <p class="eyebrow">Biblioteca Vital 40+</p>
+
+        <h1>Ideas para mantenerte fuerte, móvil y activo</h1>
+
+        <p class="articles-hero__description">
+          Información basada en evidencia y explicada con claridad para
+          ayudarte a tomar decisiones sostenibles después de los 40.
+        </p>
+      </div>
+    </header>
+
+    
+    <section
+      class="articles-section"
+      aria-labelledby="articles-heading"
+    >
+      <div class="container">
+        <div class="articles-section__header">
+          <div>
+            <p class="eyebrow">Explora la biblioteca</p>
+
+            <h2 id="articles-heading">
+              Artículos recientes
+            </h2>
+          </div>
+
+          <p class="articles-count">
+            {
+              sortedArticles.length === 1
+                ? "1 artículo"
+                : `${sortedArticles.length} artículos`
+            }
+          </p>
+        </div>
+
+        {
+          categories.length > 0 && (
+            <ul
+              class="category-list"
+              aria-label="Categorías disponibles"
+            >
+              {categories.map((category) => (
+                <li>{category}</li>
+              ))}
+            </ul>
+          )
+        }
+
+        {
+          sortedArticles.length > 0 ? (
+            <div class="articles-grid">
+              {sortedArticles.map((article) => (
+                <ArticleCard article={article} />
+              ))}
+            </div>
+          ) : (
+            <div class="empty-state">
+              <h2>Los primeros artículos están en preparación</h2>
+
+              <p>
+                Muy pronto encontrarás aquí contenidos sobre fuerza,
+                movilidad y hábitos para después de los 40.
+              </p>
+
+              <a href="/empieza-aqui">
+                Mientras tanto, empieza aquí
+              </a>
+            </div>
+          )
+        }
+      </div>
+    </section>
+
+    <section class="editorial-note">
+      <div class="container editorial-note__content">
+        <p class="eyebrow">Nuestro criterio editorial</p>
+
+        <h2>Menos ruido. Más claridad para actuar.</h2>
+
+        <p>
+          Publicamos contenidos educativos sustentados en fuentes
+          confiables. Explicamos lo que sabemos, reconocemos los límites
+          de la evidencia y evitamos las promesas rápidas.
+        </p>
+
+        <a class="editorial-note__link" href="/empieza-aqui">
+          Conoce por dónde empezar
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .container {
+    width: min(100% - 2rem, 72rem);
+    margin-inline: auto;
+  }
+
+  .articles-hero {
+    padding-block: clamp(4.5rem, 10vw, 8rem);
+    background:
+      radial-gradient(
+        circle at 85% 20%,
+        color-mix(in srgb, var(--color-mustard) 22%, transparent),
+        transparent 32%
+      ),
+      var(--color-sand);
+  }
+
+  .articles-hero__content {
+    max-width: 52rem;
+  }
+
+  .eyebrow {
+    margin: 0 0 0.8rem;
+    color: var(--color-clay);
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .articles-hero h1 {
+    max-width: 15ch;
+    margin: 0;
+    color: var(--color-ink);
+    font-size: clamp(2.5rem, 7vw, 5rem);
+    line-height: 0.98;
+    text-wrap: balance;
+  }
+
+  .articles-hero__description {
+    max-width: 43rem;
+    margin: 1.5rem 0 0;
+    color: color-mix(
+      in srgb,
+      var(--color-ink) 78%,
+      transparent
+    );
+    font-size: clamp(1.05rem, 2vw, 1.25rem);
+    line-height: 1.7;
+  }
+
+  .articles-section {
+    padding-block: clamp(4rem, 8vw, 7rem);
+    background: var(--color-ivory);
+  }
+
+  .articles-section__header {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 2rem;
+    margin    margin-bottom: 1.5rem;
+  }
+
+  .articles-section__header h2 {
+    margin: 0;
+    color: var(--color-ink);
+    font-size: clamp(2rem, 5vw, 3.25rem);
+    line-height: 1.1;
+  }
+
+  .articles-count {
+    margin: 0 0 0.35rem;
+    color: var(--color-forest);
+    font-size: 0.95rem;
+    font-weight: 700;
+  }
+
+  .category-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin: 0 0 2.5rem;
+    padding: 0;
+    list-style: none;
+  }
+
+  .category-list li {
+    padding: 0.5rem 0.85rem;
+    color: var(--color-forest);
+    background: color-mix(
+      in srgb,
+      var(--color-forest) 10%,
+      var(--color-ivory)
+    );
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 700;
+  }
+
+  .articles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  .empty-state {
+    max-width: 42rem;
+    padding: clamp(2rem, 5vw, 4rem);
+    background: var(--color-sand);
+    border-radius: 1.25rem;
+  }
+
+  .empty-state h2 {
+    margin-top: 0;
+    color: var(--color-ink);
+  }
+
+  .empty-state p {
+    line-height: 1.7;
+  }
+
+  .empty-state a {
+    color: var(--color-clay);
+    font-weight: 800;
+  }
+
+  .editorial-note {
+    padding-block: clamp(4rem, 9vw, 7rem);
+    background: var(--color-ink);
+  }
+
+  .editorial-note__content {
+    max-width: 48rem;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .editorial-note h2 {
+    margin: 0;
+    color: var(--color-ivory);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 1.1;
+    text-wrap: balance;
+  }
+
+  .editorial-note p:not(.eyebrow) {
+    margin: 1.5rem auto;
+    color: color-mix(
+      in srgb,
+      var(--color-ivory) 78%,
+      transparent
+    );
+    font-size: 1.05rem;
+    line-height: 1.75;
+  }
+
+  .editorial-note__link {
+    display: inline-flex;
+    gap: 0.5rem;
+    color: var(--color-mustard);
+    font-weight: 800;
+    text-decoration: none;
+  }
+
+  .editorial-note__link:hover {
+    text-decoration: underline;
+    text-underline-offset: 0.3em;
+  }
+
+  @media (max-width: 56rem) {
+    .articles-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 40rem) {
+    .articles-section__header {
+      display: block;
+    }
+
+    .articles-count {
+      margin-top: 0.75rem;
+    }
+
+    .articles-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .articles-hero h1 {
+      max-width: 12ch;
+    }
+  }
+</style>
