@@ -1,37 +1,35 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<head>
-  <!-- Google tag (gtag.js) -->
-  <script
-    is:inline
-    async
-    src="https://www.googletagmanager.com/gtag/js?id=G-M8PH16H0QV">
-  </script>
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script
+      is:inline
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-M8PH16H0QV"
+    ></script>
 
-  <script is:inline>
-    window.dataLayer = window.dataLayer || [];
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
 
-    function gtag() {
-      dataLayer.push(arguments);
-    }
+      function gtag() {
+        dataLayer.push(arguments);
+      }
 
-    gtag('js', new Date());
-    gtag('config', 'G-M8PH16H0QV');
-  </script>
+      gtag('js', new Date());
+      gtag('config', 'G-M8PH16H0QV');
+    </script>
 
-  <!-- El resto del head -->
-</head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro Basics</title>
+  </head>
+
+  <body>
+    <slot />
+  </body>
 </html>
 
 <style>
