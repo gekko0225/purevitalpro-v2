@@ -15,12 +15,15 @@ references:
   - title: "Physical activity"
     organization: "Organización Mundial de la Salud"
     url: "https://www.who.int/news-room/fact-sheets/detail/physical-activity"
+
   - title: "Resistance Training Induces Improvements in Range of Motion: A Systematic Review and Meta-Analysis"
     organization: "Sports Medicine"
     url: "https://pubmed.ncbi.nlm.nih.gov/36622555/"
+
   - title: "Strength Training versus Stretching for Improving Range of Motion: A Systematic Review and Meta-Analysis"
     organization: "Healthcare"
     url: "https://pubmed.ncbi.nlm.nih.gov/33917036/"
+
   - title: "Comparison of the effects of resistance training versus static stretching on flexibility and strength in healthy participants"
     organization: "European Journal of Sport Science"
     url: "https://pubmed.ncbi.nlm.nih.gov/38943165/"

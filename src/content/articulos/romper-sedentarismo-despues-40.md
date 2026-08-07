@@ -15,12 +15,15 @@ references:
   - title: "WHO guidelines on physical activity and sedentary behaviour"
     organization: "Organización Mundial de la Salud"
     url: "https://www.who.int/publications/i/item/9789240015128"
+
   - title: "Physical activity"
     organization: "Organización Mundial de la Salud"
     url: "https://www.who.int/news-room/fact-sheets/detail/physical-activity"
+
   - title: "Effects of Interrupting Prolonged Sitting with Physical Activity Breaks on Blood Glucose, Insulin and Triacylglycerol Measures: A Systematic Review and Meta-analysis"
     organization: "Sports Medicine"
     url: "https://pubmed.ncbi.nlm.nih.gov/31552570/"
+
   - title: "The Acute Effects of Interrupting Prolonged Sitting Time in Adults with Standing and Light-Intensity Walking on Biomarkers of Cardiometabolic Health in Adults: A Systematic Review and Meta-analysis"
     organization: "Sports Medicine"
     url: "https://pubmed.ncbi.nlm.nih.gov/35147898/"

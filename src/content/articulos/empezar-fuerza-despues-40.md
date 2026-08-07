@@ -15,12 +15,15 @@ references:
   - title: "Physical activity"
     organization: "Organización Mundial de la Salud"
     url: "https://www.who.int/news-room/fact-sheets/detail/physical-activity"
+
   - title: "Physical Activity Guidelines for Americans, 2nd edition"
     organization: "U.S. Department of Health and Human Services"
     url: "https://health.gov/sites/default/files/2019-09/Physical_Activity_Guidelines_2nd_edition.pdf"
+
   - title: "Circuit resistance training is an effective means to enhance muscle strength in older and middle aged adults: A systematic review and meta-analysis"
     organization: "Ageing Research Reviews"
     url: "https://pubmed.ncbi.nlm.nih.gov/28457933/"
+
   - title: "Progressive resistance strength training for improving physical function in older adults"
     organization: "Cochrane Database of Systematic Reviews"
     url: "https://pubmed.ncbi.nlm.nih.gov/19588334/"
